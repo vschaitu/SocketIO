@@ -8,6 +8,8 @@ const makeHandlers = require('./handlers')
 const clientManager = ClientManager()
 const chatroomManager = ChatroomManager()
 
+const PORT = process.env.PORT || 3000;
+
 io.on('connection', function (client) {
   const {
     handleRegister,
@@ -45,7 +47,7 @@ io.on('connection', function (client) {
   })
 })
 
-server.listen(3000, function (err) {
+server.listen(PORT, function (err) {
   if (err) throw err
   console.log('listening on port 3000')
 })
